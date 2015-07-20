@@ -1,0 +1,84 @@
+.panel.panel-default(style='width:30%')
+  .panel-heading.text-center.h4 Basic
+
+    .panel-body
+      table.table.table-bordered
+        tbody
+          tr
+            td.col-md-2 Hostname
+            td.col-md-2 #{hostname}
+          tr
+            td.col-md-2 Achitecture
+            td.col-md2 #{arch}
+          tr
+            td.col-md-2 Release
+            td.col-md2 3.24
+          tr
+            td.col-md-2 Uptime
+            td.col-md2 #{uptime}
+.div
+  .row.center-block
+    .col-md-2
+      .panel.panel-default
+        .panel-heading(contenteditable='false')
+          h4.text-center CPUs
+          table.table
+            tbody
+              -var num = 1
+              each cpu_load in cpu_stats
+                tr
+                  td.col-md-1.h5 CPU#{num++}
+                  td
+                    .progress(style='margin-bottom: 0px')
+                      .progress-bar(role='progressbar', style='width: #{cpu_load}%;')
+
+    .col-md-2
+      .panel.panel-default
+        .panel-heading(contenteditable='false')
+          h4.text-center Memory
+          table.table
+            tbody
+              tr
+                td.col-md-1 Total
+                td.h5 #{total_mem} kbytes
+              tr
+                td.col-md-1 Free
+                td.h5 #{free_mem} kbytes
+  .row.center-block
+    .col-md-2
+      .panel.panel-default
+        .panel-heading(contenteditable='false')
+          h4.text-center Disk
+          table.table
+            tbody
+              tr
+                td.col-md-1 CPU#1
+                td
+                  .progress(style='margin-bottom: 0px')
+                    .progress-bar(role='progressbar', style='width: 60%;')
+              tr
+                td.col-md-1 CPU#1
+                td
+                  .progress(style='margin-bottom: 0px')
+                    .progress-bar(role='progressbar', style='width: 60%;')
+              tr
+                td.col-md-1 CPU#1
+                td
+                  .progress(style='margin-bottom: 0px')
+                    .progress-bar(role='progressbar', style='width: 60%;')
+    .col-md-2
+      .panel.panel-default
+        .panel-heading(contenteditable='false')
+          h4.text-center Basic network
+          table.table
+            tbody
+              tr
+                td.col-md-1 CPU#1
+                td
+                  .progress(style='margin-bottom: 0px')
+                    .progress-bar(role='progressbar', style='width: 60%;')
+              tr
+                td.col-md-1 CPU#1
+                td
+                  .progress(style='margin-bottom: 0px')
+                    .progress-bar(role='progressbar', style='width: 60%;')

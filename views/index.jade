@@ -1,0 +1,51 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        meta(name='description', content='')
+        meta(name='author', content='')
+        title Simple Sidebar - Start Bootstrap Template
+        // Bootstrap Core stylesheets
+        link(href='stylesheets/bootstrap.min.css', rel='stylesheet')
+        // Custom stylesheets
+        link(href='stylesheets/simple-sidebar.css', rel='stylesheet')
+        // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+        // WARNING: Respond.js doesn't work if you view the page via file://
+        //if lt IE 9
+          script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+          script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    body
+        #wrapper
+            // Sidebar
+            #sidebar-wrapper
+                ul.sidebar-nav
+                    li.sidebar-brand
+                        a(href='#')
+                            | Spy X_x
+                    each name, alias in plugins_list
+                        li
+                            a(href='#' + alias)= name
+            // /#sidebar-wrapper
+            // Page Content
+            div#page-content-wrapper.container-fluid
+                .row
+                    .col-lg-12
+                        div#plugin-data-container.container-fluid
+                            p
+                                | sdasdasThis template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.
+
+            // /#page-content-wrapper
+        // /#wrapper
+        // jQuery
+        script(src='javascripts/jquery.js')
+        // Bootstrap Core JavaScript
+        script(src='javascripts/bootstrap.min.js')
+        // Menu Toggle Script
+
+        each name, alias in plugins_list
+            script.
+                $('a[href^="##{alias}"').click(function() {
+                    $('#plugin-data-container').load("plugin/" + "#{alias}")
+                });
